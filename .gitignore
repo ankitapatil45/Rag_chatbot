@@ -5,4 +5,4 @@ venv/
 .env
 .vscode/
 .DS_Store
-.chroma
+.chroma.chroma/
