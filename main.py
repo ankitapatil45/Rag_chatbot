@@ -1,8 +1,15 @@
+import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+
 from chatbot.main import router as chatbot_router
 from semantic.main import router as semantic_router
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-8s  %(name)s  %(message)s",
+)
 
 app = FastAPI(title="AI Services")
 
@@ -24,5 +31,5 @@ def root():
         "status": "Online",
         "chatbot_api": "/chatbot/ask",
         "semantic_api": "/semantic/search/similar",
-        "docs": "/docs"
+        "docs": "/docs",
     }
